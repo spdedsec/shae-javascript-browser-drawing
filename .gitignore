@@ -1,0 +1,15 @@
+# Browser project
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor / IDE
+.*.swp
+*~
+.vscode/
+.idea/
+*.code-workspace
+
+# Dependencies / cache (none required, but kept for safety)
+node_modules/
+.cache/

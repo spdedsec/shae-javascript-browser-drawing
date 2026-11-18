@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>shae — browser drawing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="shell">
+    <h1>shae drawing</h1>
+    <p class="muted">HTML5 canvas &bull; mouse &amp; touch &bull; save PNG</p>
+  </header>
+
+  <main class="shell">
+    <div class="toolbar" role="toolbar" aria-label="drawing tools">
+      <label class="control">
+        <span class="label">color</span>
+        <input type="color" id="color" value="#191712" aria-label="stroke color">
+      </label>
+      <label class="control">
+        <span class="label">brush</span>
+        <input type="range" id="brush" min="2" max="40" value="8" aria-label="brush size">
+        <span class="brush-val" id="brush-val">8 px</span>
+      </label>
+      <button id="clear" class="btn" type="button">clear</button>
+      <button id="save" class="btn btn--oxide" type="button">save png</button>
+    </div>
+
+    <div class="canvas-card">
+      <canvas id="canvas" width="800" height="600" role="img" aria-label="drawing canvas"></canvas>
+    </div>
+
+    <p class="hint">Drag to draw with mouse or touch. Oxide marks the primary action.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

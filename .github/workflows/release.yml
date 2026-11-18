@@ -1,0 +1,58 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity-check source files
+        run: make test
+
+  release:
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body: |
+            shae-javascript-browser-drawing ${{ github.ref_name }}
+
+            A browser-based drawing application with HTML5 Canvas, vanilla
+            JavaScript, and CSS. Styled to the SHAE field manual: warm paper
+            background, ink strokes, oxide accent UI, 0px radius, 1px
+            borders, 44px touch targets, oxide focus rings.
+
+            ## Usage
+
+            Open `src/index.html` in a browser, or serve locally:
+
+            ```bash
+            python3 -m http.server 8080
+            # visit http://localhost:8080/src/index.html
+            ```
+
+            ## Features
+
+            - Mouse and touch drawing
+            - Color picker and adjustable brush size
+            - Clear canvas
+            - Save drawing as PNG
+            - No dependencies
+          generate_release_notes: false
