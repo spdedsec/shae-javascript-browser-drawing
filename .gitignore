@@ -13,3 +13,4 @@ Thumbs.db
 # Dependencies / cache (none required, but kept for safety)
 node_modules/
 .cache/
+.vercel
