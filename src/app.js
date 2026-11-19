@@ -23,12 +23,12 @@
       opacity: 1.0,
       hardness: 0.5,
       smoothing: true,
-      color: '#191712'
+      color: '#007AFF'
     },
     
     // Colors
-    strokeColor: '#191712',
-    fillColor: '#B3341B',
+    strokeColor: '#007AFF',
+    fillColor: '#34C759',
     
     // Layers
     layers: [],
